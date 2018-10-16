@@ -1,0 +1,7 @@
+[
+  {
+    "path": "/",
+    "component": "App",
+    "exact": true
+  }
+]

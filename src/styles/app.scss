@@ -1,0 +1,46 @@
+@charset 'utf-8';
+@import './LoadBar.scss';
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: whitesmoke;
+}
+
+/* mixin for multiline */
+@mixin multiLineEllipsis($lineHeight: 1.3em, $lineCount: 1, $bgColor: white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight !important;
+  max-height: $lineHeight * $lineCount; 
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 2.5em;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 26px;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+.block-with-text {
+  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: white);  
+}
+
+.appear {
+  display: block;
+}
+
+.disappear {
+  display: none;
+}
